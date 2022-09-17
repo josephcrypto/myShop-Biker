@@ -5,8 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<!--    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>-->
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -30,7 +32,7 @@
                     </div>
                     <div class="col-md-6 col-sm-6 contact-form1 form-group">
                         <label class="col-form-label">Year</label>
-                        <input type="text" class="form-control" placeholder="Product Year" id="year" name="name" required="required">
+                        <input type="text" class="form-control" placeholder="Product Year" id="year" name="year" required="required">
                         <p id="error_year"></p>
                     </div>
                     <div class="col-md-6 col-sm-6 contact-form1 form-group">
