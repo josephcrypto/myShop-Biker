@@ -12,7 +12,7 @@
 <body>
 <br>
 <h1 class="text-center">Spring Boot myShop Application
-    <a th:href="@{/home}" class="btn btn-danger text-right">Back </a>
+
 </h1>
 <br><br>
 
@@ -36,16 +36,16 @@
         <td th:text="${product.name}"></td>
         <td th:text="${product.brand}"></td>
         <td th:text="${product.year}"></td>
-        <td><img th:src="@{${'/product/display/'+ product.id}}"
+        <td><img th:src="@{${'/product/display/'+ product.getId()}}"
                  class="card img-fluid" style="width:300px" alt=""/></td>
         <td th:text="${product.description}"></td>
         <td th:text="${product.price}"></td>
         <td th:text="${#dates.format({product.createDate}, 'dd-MM-yyyy')}"/></td>
-        <td><a th:href="@{/product/productDetails(id=${product.id})}" class="btn btn-info text-right" target="_blank">View</a></td>
+        <td><a th:href="@{/product/productDetails(id=${product.getId()})}" class="btn btn-info text-right" target="_blank">View</a></td>
     </tr>
     </tbody>
 </table>
-
+<a th:href="@{/home}" class="btn btn-info text-right">Back </a>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>

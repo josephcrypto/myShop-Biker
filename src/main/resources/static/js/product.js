@@ -31,8 +31,8 @@
             $("#error_brand").html("Please fill the required field.");
             $("#error_year").html("Please fill the required field.");
             $("#error_file").html("Please fill the required field.");
-            $("#error_description").html("Please fill the required field.");
             $("#error_price").html("Please fill the required field.");
+            $("#error_description").html("Please fill the required field.");
 
 
         } else {
