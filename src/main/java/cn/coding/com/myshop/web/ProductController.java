@@ -67,9 +67,9 @@ public class ProductController {
                 return new ResponseEntity<>("Sorry! File name contains invalid path sequence " + fileName, HttpStatus.BAD_REQUEST);
             }
             String[] names = name.split(",");
-            String[] brands = name.split(",");
-            String[] years = name.split("-");
-            String[] descriptions = name.split(",");
+            String[] brands = brand.split(",");
+            String[] years = year.split("-");
+            String[] descriptions = description.split(",");
             Date createDate = new Date();
             logger.info("Name: " + names[0]+ " " + filePath );
             logger.info("brand: " + brands[0]);
