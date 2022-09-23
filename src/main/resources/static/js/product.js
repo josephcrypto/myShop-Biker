@@ -52,7 +52,7 @@
                         type: 'POST',
                         enctype: 'multipart/form-data',
                         data: data,
-                        url: "/product/saveProductDetails",
+                        url: "/bike/saveBikeDetails",
                         processData: false,
                         contentType: false,
                         cache: false,
@@ -63,7 +63,7 @@
                         	$("#form")[0].reset();
                         	$('#success').css('display','block');
                             $("#error").text("");
-                            $("#success").html("Product Inserted Successfully.");
+                            $("#success").html("Bikes Inserted Successfully.");
                             $('#success').delay(2000).fadeOut('slow');
                          }	   
                         },

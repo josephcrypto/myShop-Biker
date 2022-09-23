@@ -36,12 +36,14 @@
         <td th:text="${product.name}"></td>
         <td th:text="${product.brand}"></td>
         <td th:text="${product.year}"></td>
-        <td><img th:src="@{${'/product/display/'+ product.getId()}}"
+        <td><img th:src="@{${'/bike/display/'+ product.getId()}}"
                  class="card img-fluid" style="width:300px" alt=""/></td>
         <td th:text="${product.description}"></td>
         <td th:text="${product.price}"></td>
         <td th:text="${#dates.format({product.createDate}, 'dd-MM-yyyy')}"/></td>
-        <td><a th:href="@{/product/productDetails(id=${product.getId()})}" class="btn btn-info text-right" target="_blank">View</a></td>
+        <td><a th:href="@{/bike/bikeDetails(id=${product.getId()})}" class="btn btn-info text-right" target="_blank">View</a></td>
+<!--            <a th:href="@{/product/delete(id=${product.getId()})}" class="btn btn-danger text-right">Delete</a>-->
+
     </tr>
     </tbody>
 </table>

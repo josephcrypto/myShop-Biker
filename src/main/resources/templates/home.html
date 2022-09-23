@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <title>Bike-Spot</title>
+</head>
+
+<div>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div>
+                <a style="color: #0e0e0e" href="https://portfolio-joseph-crypto.herokuapp.com" class = "navbar-brand" target="_blank">
+                    Biker Spot Shop Application
+                </a>
+            </div>
+        </nav>
+    </header>
+</div>
+<style>
+    .footer {
+        position: absolute;
+        bottom: 0;
+        font-size: small;
+        width:100%;
+        height: 50px;
+        background-color: #1c1c1c;
+        text-align: center;
+        color: white;
+    }
+
+</style>
+<body>
+
+<div class="container-fluid text-center">
+    <br>
+    <h2 style="color: #d60404">Welcome to Biker-Spot Shop</h2>
+    <br>
+    <div>
+        <a class="h3" th:href="@{/bike/list}">Bike Lists</a>
+    </div>
+    <br/>
+    <div>
+        <a class="h4" th:href="@{/bike/form}">Add New Bike</a>
+    </div>
+
+
+<div>
+    <footer class="footer">
+        <span class="text-muted">All Rights Reserved 2022 @Joseph Crypto</span>
+    </footer>
+</div>
+</body>
+</html>

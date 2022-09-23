@@ -46,10 +46,15 @@ public class ProductController {
 
     @GetMapping(value = {"/", "/home"})
     public String addProduct() {
-        return "index";
+        return "home";
     }
 
-    @PostMapping("/product/saveProductDetails")
+    @GetMapping("/bike/form")
+    public String showForm() {
+        return "form";
+    }
+
+    @PostMapping("/bike/saveBikeDetails")
     @ResponseBody
     public ResponseEntity<?> createProduct(@RequestParam("name") String name, @RequestParam("brand") String brand,
                                            @RequestParam("year") String year, @RequestParam("description") String description,
@@ -109,11 +114,11 @@ public class ProductController {
         }
     }
 
-    @GetMapping("/product/display/{id}")
+    @GetMapping("/bike/display/{id}")
     @ResponseBody
     public void showProduct(@PathVariable("id") Long id, HttpServletResponse response, Optional<Product> product)
             throws ServletException, IOException {
-        logger.info("Id :: " + id);
+        logger.info("Bike Id  :: " + id);
         product = productService.getProductById(id);
         response.setContentType("image/jpeg");
         response.setContentType("image/jpg" );
@@ -124,13 +129,13 @@ public class ProductController {
 
     }
 
-    @GetMapping("/product/productDetails")
-    public String showProductDetails(@RequestParam("id") Long id, Optional<Product> product, Model model) {
+    @GetMapping("/bike/bikeDetails")
+    public String showBikeDetails(@RequestParam("id") Long id, Optional<Product> product, Model model) {
         try {
-            logger.info("Product ID:: " + id);
+            logger.info("Biker ID:: " + id);
             if (id != 0) {
                 product = productService.getProductById(id);
-                logger.info("products :: " + product);
+                logger.info("bikers :: " + product);
                 if (product.isPresent()) {
                     model.addAttribute("id", product.get().getId());
                     model.addAttribute("name", product.get().getName());
@@ -138,7 +143,7 @@ public class ProductController {
                     model.addAttribute("year", product.get().getYear());
                     model.addAttribute("description", product.get().getDescription());
                     model.addAttribute("price", product.get().getPrice());
-                    return "productdetails";
+                    return "bikedetails";
                 }
                 return "redirect:/home";
             }
@@ -149,15 +154,15 @@ public class ProductController {
         }
     }
 
-    @GetMapping("/product/show")
+    @GetMapping("/bike/list")
     public String show(Model map) {
         List<Product> products = productService.listAllProduct();
         map.addAttribute("products", products);
-        return "products";
+        return "bike-list";
     }
 
 
-    @GetMapping("/product/delete/{id}")
+    @GetMapping("/bike/delete/{id}")
     public String delete(@PathVariable("id") Long id, RedirectAttributes redirect) {
         try {
             productService.deleteProductById(id);
