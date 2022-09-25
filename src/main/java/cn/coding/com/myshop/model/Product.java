@@ -33,7 +33,7 @@ public class Product {
     @Column(name = "description", nullable = true, length = 100)
     private String description;
 
-    @Column(name = "price", nullable = false, precision = 10, scale = 5)
+    @Column(name = "price", nullable = false, precision = 20, scale = 10)
     private double price;
 
     @Lob
