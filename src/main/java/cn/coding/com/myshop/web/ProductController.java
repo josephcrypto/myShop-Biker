@@ -44,7 +44,7 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping(value = {"/", "/home"})
+//    @GetMapping(value = {"/", "/home"})
     public String addProduct() {
         return "home";
     }

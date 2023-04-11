@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
-    <title>Bike-Spot</title>
+    <title>Joseph-Biker</title>
 </head>
 
 <div>
     <header>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div>
-                <a style="color: #0e0e0e" href="https://portfolio-joseph-crypto.herokuapp.com" class = "navbar-brand" target="_blank">
-                    Biker Spot Shop Application
+                <a style="color: #0e0e0e" href="https://josephcrypto.github.io" class = "navbar-brand" target="_blank">
+                    JosephCrypto - Biker Application
                 </a>
             </div>
         </nav>
     </header>
 </div>
+
 <style>
     .footer {
         position: absolute;
@@ -32,10 +33,16 @@
 
 </style>
 <body>
+<div class="m-2 text-right">
+    <form th:action="@{/logout}" method="post">
+
+        <input class="btn btn-outline-info" type="submit" value="Logout" />
+    </form>
+</div>
 
 <div class="container-fluid text-center">
     <br>
-    <h2 style="color: #d60404">Welcome to Biker-Spot Shop</h2>
+    <h2 style="color: #d60404">Welcome to JosephCrypto Biker</h2>
     <br>
     <div>
         <a class="h3" th:href="@{/bike/list}">Bike Lists</a>

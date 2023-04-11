@@ -13,8 +13,8 @@
     <header>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div>
-                <a style="color: black" href = "https://myiphonex64g23.wixsite.com/website" class = "navbar-brand" target="_blank">
-                    Biker-Spot Shop Application
+                <a style="color: black" href = "https://josephcrypto.github.io" class = "navbar-brand" target="_blank">
+                    JosephCrypto - Biker Application
                 </a>
             </div>
         </nav>
@@ -51,7 +51,7 @@
         <td th:text="${product.description}"></td>
         <td th:text="${product.price}"></td>
         <td th:text="${#dates.format({product.createDate}, 'dd-MM-yyyy')}"/></td>
-        <td><a th:href="@{/bike/bikeDetails(id=${product.getId()})}" class="btn btn-info text-right" target="_blank">View</a></td>
+        <td><a th:href="@{/bike/bikeDetails(id=${product.getId()})}" class="btn btn-info text-right">View</a></td>
 <!--            <a th:href="@{/product/delete(id=${product.getId()})}" class="btn btn-danger text-right">Delete</a>-->
 
     </tr>

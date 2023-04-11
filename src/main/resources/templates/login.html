@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" th:href="@{/css/loginPage.css}">
+  <style>
+    #message
+    {
+      color: red;
+      width: 100%;
+      text-align: center;
+    }
+    #form
+    {
+      margin: 10vh auto;
+    }
+
+    body {
+      background-image: url('/images/JC.png');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 100%;
+
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script>
+
+    function sendajax()
+    {
+      var formdatas = $("#form input, #form select").serializeArray();
+
+      var data = {};
+      $( formdatas ).each(function(index, obj){
+        data[obj.name] = obj.value;
+      });
+
+      console.log(data);
+
+      $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: '/api/validatelogin',
+        contentType: "application/json",
+        data:JSON.stringify(data),
+        success: function (json) {
+          console.log(json);
+          $("#message").html(json.message);
+          if(json.code=="1") {
+            window.location = "/home";
+          }
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+          console.log('request failed: ' + textStatus);
+          $("#message").html('request failed: ' + textStatus);
+        }
+      });
+
+    }
+
+    $(function(){
+      $('#login').click(function() {
+        sendajax();
+      });
+    });
+
+
+  </script>
+</head>
+<body>
+<div class="container">
+  <div id="form" class="login_page">
+    <h3 id="message"></h3>
+    <div class="fonts"><i class="fas fa-user"></i></div><br>
+    <span>JosephCrypto</span><br>
+    <label>Username</label><br>
+    <input type="text" id="username" name="username" placeholder="Enter username" required autofocus><br>
+    <label>Password</label><br>
+    <input type="password" id="password" name="password" placeholder="Enter password" required autofocus><br>
+    <input type="Submit" id="login" value="Login"><br>
+    <a href="#">Ride For Freedom</a>
+  </div>
+</div>
+
+<footer class="footer navbar-dark bg-dark fixed-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <p class="text-center text-muted">&copy;
+          <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}"></span>
+          <a href="https://portfolio-joseph-crypto.herokuapp.com/">Power By &copy; Joseph Crypto</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
