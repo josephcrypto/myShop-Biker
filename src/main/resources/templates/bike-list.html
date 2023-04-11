@@ -42,7 +42,8 @@
     </thead>
     <tbody th:with="count=0">
     <tr th:each = "product, hh : ${products}">
-        <td th:with="count=${count + 1}" th:text="${count}"></td>
+<!--        <td th:with="count=${count + 1}" th:text="${count}"></td>-->
+        <td th:text="${product.getId()}"></td>
         <td th:text="${product.name}"></td>
         <td th:text="${product.brand}"></td>
         <td th:text="${product.year}"></td>
