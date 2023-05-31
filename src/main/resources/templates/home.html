@@ -9,11 +9,43 @@
 
 <div>
     <header>
+<!--        <nav class="navbar navbar-expand-md navbar-dark bg-dark">-->
+<!--            <div>-->
+<!--                <a style="color: #0e0e0e" href="https://josephcrypto.github.io" class = "navbar-brand" target="_blank">-->
+<!--                    JosephCrypto - Biker Application-->
+<!--                </a>-->
+<!--            </div>-->
+<!--        </nav>-->
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-            <div>
-                <a style="color: #0e0e0e" href="https://josephcrypto.github.io" class = "navbar-brand" target="_blank">
-                    JosephCrypto - Biker Application
-                </a>
+            <div class="container">
+                <img th:src="@{images/Pentagram.png}" class="rounded float-start" width="50" height="50" alt="logo">
+                <h3>Joseph Crypto</h3>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/bike/list}">Bike List</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/bike/form}">Add Bike</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://josephcrypto.github.io">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="m-2 text-right">
+                <form th:action="@{/logout}" method="post">
+
+                    <input class="btn btn-outline-danger" type="submit" value="Logout" />
+                </form>
             </div>
         </nav>
     </header>
@@ -30,27 +62,24 @@
         text-align: center;
         color: white;
     }
+    body {
+        background-image: url("/images/JosephCrypto2.JPG");
+    }
 
 </style>
 <body>
-<div class="m-2 text-right">
-    <form th:action="@{/logout}" method="post">
-
-        <input class="btn btn-outline-info" type="submit" value="Logout" />
-    </form>
-</div>
 
 <div class="container-fluid text-center">
-    <br>
-    <h2 style="color: #d60404">Welcome to JosephCrypto Biker</h2>
-    <br>
-    <div>
-        <a class="h3" th:href="@{/bike/list}">Bike Lists</a>
-    </div>
-    <br/>
-    <div>
-        <a class="h4" th:href="@{/bike/form}">Add New Bike</a>
-    </div>
+<!--    <br>-->
+<!--    <h2 style="color: #3b45e8">Welcome to JosephCrypto Biker</h2>-->
+<!--    <br>-->
+<!--    <div>-->
+<!--        <a class="h3" th:href="@{/bike/list}">Bike Lists</a>-->
+<!--    </div>-->
+<!--    <br/>-->
+<!--    <div>-->
+<!--        <a class="h4" th:href="@{/bike/form}">Add New Bike</a>-->
+<!--    </div>-->
 
 </div>
 <div>
