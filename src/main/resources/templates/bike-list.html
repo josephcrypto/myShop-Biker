@@ -37,6 +37,7 @@
         <th>Description</th>
         <th>Price</th>
         <th>Arrive_Date</th>
+        <th>Status</th>
         <th>Action</th>
     </tr>
     </thead>
@@ -52,6 +53,7 @@
         <td th:text="${product.description}"></td>
         <td th:text="${product.price}"></td>
         <td th:text="${#dates.format({product.createDate}, 'dd-MM-yyyy')}"/></td>
+        <td th:text="${product.status}"></td>
         <td><a th:href="@{/bike/bikeDetails(id=${product.getId()})}" class="btn btn-info text-right">View</a></td>
 <!--            <a th:href="@{/product/delete(id=${product.getId()})}" class="btn btn-danger text-right">Delete</a>-->
 

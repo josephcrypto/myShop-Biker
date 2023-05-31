@@ -44,5 +44,6 @@ public class Product {
     @Column(name = "create_date", nullable = false)
     private Date createDate;
 
-
+    @Column(name = "status", nullable = false, length = 30)
+    private String status;
 }

@@ -57,7 +57,7 @@ public class ProductController {
     @PostMapping("/bike/saveBikeDetails")
     @ResponseBody
     public ResponseEntity<?> createProduct(@RequestParam("name") String name, @RequestParam("brand") String brand,
-                                           @RequestParam("year") String year, @RequestParam("description") String description,
+                                           @RequestParam("year") String year, @RequestParam("description") String description, @RequestParam("status") String status,
                                            Model model, HttpServletRequest request,
                                            @RequestParam("price") double price, final @RequestParam("image") MultipartFile file) {
         try {
@@ -75,6 +75,7 @@ public class ProductController {
             String[] brands = brand.split(",");
             String[] years = year.split("-");
             String[] descriptions = description.split(",");
+            String[] condition = status.split(",");
             Date createDate = new Date();
             logger.info("Name: " + names[0]+ " " + filePath );
             logger.info("brand: " + brands[0]);
@@ -104,6 +105,7 @@ public class ProductController {
             product.setDescription(descriptions[0]);
             product.setPrice(price);
             product.setCreateDate(createDate);
+            product.setStatus(status);
             productService.saveProduct(product);
             logger.info("HttpStatus ======> " + new ResponseEntity<>(HttpStatus.OK));
             return new ResponseEntity<>("Product Saved With File - " + fileName, HttpStatus.OK);
@@ -143,6 +145,7 @@ public class ProductController {
                     model.addAttribute("year", product.get().getYear());
                     model.addAttribute("description", product.get().getDescription());
                     model.addAttribute("price", product.get().getPrice());
+                    model.addAttribute("status", product.get().getStatus());
                     return "bikedetails";
                 }
                 return "redirect:/home";
