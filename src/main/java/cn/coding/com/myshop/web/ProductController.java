@@ -164,6 +164,26 @@ public class ProductController {
         return "bike-list";
     }
 
+    @GetMapping("/bike/new")
+    public String showNewBike(Model model) {
+        model.addAttribute("product", new Product());
+        model.addAttribute("pageTitle", "Add New Bike");
+        return "form";
+    }
+
+    @GetMapping("/bike/edit/{id}")
+    public String showEditForm(@PathVariable("id") Long id, Model model, RedirectAttributes redirect) {
+        try {
+            Product product = productService.getProductById(id).get();
+            model.addAttribute("product", product);
+            model.addAttribute("pageTitle", "Edit Bike (ID: " + id + ")");
+            redirect.addFlashAttribute("message", "Bike is Updated.");
+            return "form";
+        }catch (Exception exc) {
+            redirect.addFlashAttribute("message", exc.getMessage());
+            return "redirect:/bike/list";
+        }
+    }
 
     @GetMapping("/bike/delete/{id}")
     public String delete(@PathVariable("id") Long id, RedirectAttributes redirect) {

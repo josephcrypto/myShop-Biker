@@ -14,7 +14,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div>
                 <a style="color: black" href = "https://josephcrypto.github.io" class = "navbar-brand" target="_blank">
-                    JosephCrypto - Biker Application
+                    Joseph-MotoSport - Biker Application
                 </a>
             </div>
         </nav>
@@ -25,6 +25,9 @@
 <!--<h1 class="text-center">Biker-Spot Shop-->
 
 <!--</h1>-->
+<div th:if="${message}" class="alert alert-success text-center col-sm-4">
+    Bike is Updated.
+</div>
 
 <table id="example" class="table table-dark table-bordered text-center">
     <thead>
@@ -54,7 +57,9 @@
         <td th:text="${product.price}"></td>
         <td th:text="${#dates.format({product.createDate}, 'dd-MM-yyyy')}"/></td>
         <td th:text="${product.status}"></td>
-        <td><a th:href="@{/bike/bikeDetails(id=${product.getId()})}" class="btn btn-info text-right">View</a></td>
+        <td><a th:href="@{/bike/bikeDetails(id=${product.getId()})}" class="btn btn-info text-right">View</a><br>
+            <a th:href="@{'/bike/edit/' + ${product.getId()}}" class="btn btn-secondary text-right">Edit</a></td>
+
 <!--            <a th:href="@{/product/delete(id=${product.getId()})}" class="btn btn-danger text-right">Delete</a>-->
 
     </tr>
