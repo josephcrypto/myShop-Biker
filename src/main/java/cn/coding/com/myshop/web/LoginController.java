@@ -27,4 +27,8 @@ public class LoginController {
         model.addAttribute("username", username);
         return "home";
     }
+    @GetMapping("/contact")
+    public String contact() {
+        return "contact";
+    }
 }
